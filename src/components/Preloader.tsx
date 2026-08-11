@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
-import { Disc3, Radio } from 'lucide-react';
 
 interface PreloaderProps {
   onComplete?: () => void;
@@ -8,28 +7,25 @@ interface PreloaderProps {
 
 export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const logoRef = useRef<HTMLDivElement>(null);
-  const progressLineRef = useRef<HTMLDivElement>(null);
-  const counterRef = useRef<HTMLSpanElement>(null);
+  const topBarRef = useRef<HTMLDivElement>(null);
+  const centerContentRef = useRef<HTMLDivElement>(null);
+  const bottomWavesRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
-  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     // Lock body scroll during preloader
     document.body.style.overflow = 'hidden';
 
-    // Timeline for simulated ultra-smooth loading progression
+    // Simulated smooth progress timeline
     const tl = gsap.timeline({
       onUpdate: () => {
         const p = Math.round(tl.progress() * 100);
         setProgress(p);
       },
       onComplete: () => {
-        setIsLoaded(true);
-
         // Exit animation timeline
         const exitTl = gsap.timeline({
-          delay: 0.2,
+          delay: 0.3,
           onComplete: () => {
             document.body.style.overflow = '';
             if (containerRef.current) {
@@ -39,36 +35,30 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
           },
         });
 
-        // 1. Logo & elements scale & fade out
-        exitTl.to([logoRef.current, '.loader-content'], {
+        // 1. Content elements fade out & shift slightly
+        exitTl.to([topBarRef.current, centerContentRef.current, bottomWavesRef.current], {
           opacity: 0,
-          y: -30,
-          duration: 0.6,
-          ease: 'power3.in',
+          y: -20,
+          duration: 0.5,
+          ease: 'power2.in',
+          stagger: 0.05,
         });
 
-        // 2. Curtain slide up reveal
+        // 2. Curtain slides up smoothly
         exitTl.to(
           containerRef.current,
           {
             yPercent: -100,
-            duration: 0.9,
+            duration: 0.8,
             ease: 'power4.inOut',
           },
-          '-=0.3'
+          '-=0.2'
         );
       },
     });
 
-    // Animate progress over 2.4 seconds
-    tl.to({}, { duration: 2.2, ease: 'power2.inOut' });
-
-    // Initial entrance animations
-    gsap.fromTo(
-      logoRef.current,
-      { scale: 0.85, opacity: 0, filter: 'blur(10px)' },
-      { scale: 1, opacity: 1, filter: 'blur(0px)', duration: 1, ease: 'power3.out' }
-    );
+    // Loading duration (~2.4s)
+    tl.to({}, { duration: 2.4, ease: 'power2.inOut' });
 
     return () => {
       document.body.style.overflow = '';
@@ -78,69 +68,87 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-[99999] bg-[#050505] flex flex-col items-center justify-between py-12 px-6 overflow-hidden select-none"
+      className="fixed inset-0 z-[99999] bg-black text-white flex flex-col justify-between p-6 md:p-12 overflow-hidden select-none"
     >
-      {/* Background Ambient Radial Glow */}
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06)_0%,transparent_65%)]" />
+      {/* Top Header Bar */}
+      <div ref={topBarRef} className="w-full z-10">
+        <div className="flex justify-between items-start pb-6">
+          {/* Left Text Statement */}
+          <p className="text-[11px] sm:text-xs md:text-sm text-gray-300 font-sans max-w-xs sm:max-w-md leading-relaxed tracking-wide">
+            Make It Boom Records is an international hub where independent artists grow, new music is discovered, and global talent thrives.
+          </p>
 
-      {/* Top Header Tag */}
-      <div className="loader-content flex items-center justify-between w-full max-w-5xl z-10 text-[10px] sm:text-xs font-mono text-[#8e9192] uppercase tracking-[0.3em]">
-        <div className="flex items-center gap-2">
-          <Radio className="w-3.5 h-3.5 text-white animate-pulse" />
-          <span>BOOM AUDIO ENGINE v2.6</span>
+          {/* Right Giant Percentage Counter */}
+          <div className="text-5xl sm:text-7xl md:text-8xl font-bold font-mono tracking-tighter text-white leading-none">
+            {progress}%
+          </div>
         </div>
-        <span className="hidden sm:inline-block">EST. 2026</span>
+
+        {/* Thin Horizontal Line Separator */}
+        <div className="w-full h-[1px] bg-white/20" />
       </div>
 
-      {/* Main Center Content: Logo & Pulse Ring */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-center my-auto">
-        {/* Pulsing Outer Aura */}
-        <div className="absolute -inset-12 rounded-full bg-white/5 blur-3xl animate-pulse pointer-events-none" />
+      {/* Center: Crisp Logo Fill Effect without Clipped Glow */}
+      <div ref={centerContentRef} className="relative z-10 flex items-center justify-center my-auto py-12">
+        <div className="relative inline-block">
+          {/* Soft ambient background glow (unclipped, smooth blur behind the logo) */}
+          <div
+            className="absolute -inset-10 rounded-full bg-white/10 blur-3xl pointer-events-none transition-opacity duration-300"
+            style={{ opacity: progress > 5 ? progress / 100 : 0 }}
+          />
 
-        {/* Logo Container */}
-        <div ref={logoRef} className="relative mb-8 group">
-          {/* Animated Spinner Ring around Logo */}
-          <div className="absolute -inset-4 sm:-inset-6 rounded-full border border-white/10 border-t-white/80 animate-spin" style={{ animationDuration: '4s' }} />
-
+          {/* Base Dimmed Silhouette Logo */}
           <img
             src="/logo.png"
-            alt="Make It Boom Records"
-            className="w-32 sm:w-44 md:w-52 h-auto object-contain filter drop-shadow-[0_0_25px_rgba(255,255,255,0.25)] relative z-10"
+            alt="Make It Boom Base Logo"
+            className="w-64 sm:w-80 md:w-96 h-auto object-contain opacity-20 filter grayscale relative z-10"
           />
-        </div>
 
-        {/* Subtitle Brand Statement */}
-        <div className="loader-content space-y-1.5">
-          <h1 className="font-headline font-black text-2xl sm:text-4xl text-white tracking-[0.25em] uppercase">
-            MAKE IT BOOM
-          </h1>
-          <span className="text-[10px] sm:text-xs font-semibold tracking-[0.4em] text-[#8e9192] uppercase block">
-            RECORDS &middot; INTERNATIONAL LABEL
-          </span>
+          {/* Filled Crisp White Logo Overlay (Revealed left to right via clipPath) */}
+          <div
+            className="absolute inset-0 pointer-events-none z-20"
+            style={{
+              clipPath: `inset(0 ${100 - progress}% 0 0)`,
+            }}
+          >
+            <img
+              src="/logo.png"
+              alt="Make It Boom Filled Logo"
+              className="w-64 sm:w-80 md:w-96 h-auto object-contain brightness-115 contrast-125"
+            />
+          </div>
         </div>
       </div>
 
-      {/* Bottom Progress Bar & Counter */}
-      <div className="loader-content w-full max-w-md z-10 space-y-4 mb-4">
-        {/* Sleek Line Progress Bar */}
-        <div className="h-[2px] w-full bg-white/10 rounded-full overflow-hidden relative">
-          <div
-            ref={progressLineRef}
-            className="h-full bg-white transition-all duration-100 ease-out shadow-[0_0_12px_rgba(255,255,255,0.8)]"
-            style={{ width: `${progress}%` }}
+      {/* Bottom Wave Lines SVG Background */}
+      <div
+        ref={bottomWavesRef}
+        className="absolute bottom-0 left-0 right-0 h-48 sm:h-64 pointer-events-none opacity-40 z-0 overflow-hidden"
+      >
+        <svg
+          viewBox="0 0 1440 320"
+          className="w-full h-full object-cover"
+          preserveAspectRatio="none"
+        >
+          <path
+            fill="none"
+            stroke="rgba(255, 255, 255, 0.15)"
+            strokeWidth="1.5"
+            d="M0,160 C320,300 420,0 720,160 C1020,320 1120,20 1440,160"
           />
-        </div>
-
-        {/* Dynamic Percentage Counter & Label */}
-        <div className="flex items-center justify-between text-xs font-mono">
-          <span className="text-[#8e9192] uppercase tracking-widest flex items-center gap-2">
-            <Disc3 className="w-3.5 h-3.5 text-white animate-spin" />
-            {isLoaded ? 'SYSTEM READY' : 'INITIALIZING EXPERIENCE'}
-          </span>
-          <span ref={counterRef} className="text-white font-bold text-sm tracking-wider">
-            {String(progress).padStart(2, '0')}%
-          </span>
-        </div>
+          <path
+            fill="none"
+            stroke="rgba(255, 255, 255, 0.1)"
+            strokeWidth="1"
+            d="M0,200 C280,50 500,280 800,100 C1100,280 1300,50 1440,200"
+          />
+          <path
+            fill="none"
+            stroke="rgba(255, 255, 255, 0.08)"
+            strokeWidth="1"
+            d="M0,100 C360,240 600,80 900,220 C1200,60 1350,260 1440,100"
+          />
+        </svg>
       </div>
     </div>
   );
