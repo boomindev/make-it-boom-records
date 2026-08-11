@@ -238,6 +238,8 @@ export const Artists: React.FC<ArtistsProps> = ({ onHoverState }) => {
                   href={artist.spotifyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  title={`Escuchar a ${artist.name} (${artist.category}) en Spotify - Make It Boom Records`}
+                  aria-label={`Perfil oficial de ${artist.name} en Spotify`}
                   onMouseEnter={() => onHoverState && onHoverState(true, 'SPOTIFY')}
                   onMouseLeave={() => onHoverState && onHoverState(false)}
                   className="group relative bg-[#131313] border border-white/10 rounded-[4px] overflow-hidden hover:border-green-500/60 transition-all duration-500 cursor-pointer flex flex-col justify-between h-[460px] sm:h-[520px] shadow-2xl block"
@@ -246,7 +248,10 @@ export const Artists: React.FC<ArtistsProps> = ({ onHoverState }) => {
                   <div className="absolute inset-0 overflow-hidden bg-[#181818]">
                     <img
                       src={artist.image}
-                      alt={artist.name}
+                      alt={`${artist.name} - Artista del sello discográfico Make It Boom Records (${artist.category})`}
+                      loading="lazy"
+                      width="600"
+                      height="800"
                       draggable={false}
                       className="w-full h-full object-cover object-center filter grayscale contrast-125 brightness-90 group-hover:scale-108 group-hover:filter-none transition-all duration-700 ease-out pointer-events-none"
                     />

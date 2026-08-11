@@ -42,10 +42,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal, onOpenDemoModal
       >
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between">
           {/* Logo */}
-          <a href="#hero" className="flex items-center gap-3 group">
+          <a href="#hero" title="Make It Boom Records | Sello Discográfico & Record Label" className="flex items-center gap-3 group">
             <img
               src="/assets/logo.png"
-              alt="Make It Boom Records"
+              alt="Make It Boom Records - Sello Discográfico & Record Label de Música Urbana"
+              width="140"
+              height="36"
               className="h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               onError={(e) => {
                 // If image fails to load, replace with text fallback cleanly
@@ -59,11 +61,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal, onOpenDemoModal
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav aria-label="Navegación principal" className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
+                title={`Ir a ${link.name} - Make It Boom Records`}
                 className="text-xs font-medium tracking-[0.15em] text-[#c4c7c8] hover:text-white transition-colors duration-200 uppercase relative group py-1"
               >
                 {link.name}

@@ -1,0 +1,6 @@
+# Robots.txt for Make It Boom Records
+User-agent: *
+Allow: /
+
+# Sitemap Location
+Sitemap: https://makeitboomrecords.com/sitemap.xml

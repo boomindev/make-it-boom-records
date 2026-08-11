@@ -100,7 +100,9 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
           {/* Base Dimmed Silhouette Logo */}
           <img
             src="/logo.png"
-            alt="Make It Boom Base Logo"
+            alt="Make It Boom Records - Logo Sello Discográfico"
+            width="384"
+            height="96"
             className="w-64 sm:w-80 md:w-96 h-auto object-contain opacity-20 filter grayscale relative z-10"
           />
 
@@ -113,7 +115,9 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
           >
             <img
               src="/logo.png"
-              alt="Make It Boom Filled Logo"
+              alt="Make It Boom Records - Logo Oficial"
+              width="384"
+              height="96"
               className="w-64 sm:w-80 md:w-96 h-auto object-contain brightness-115 contrast-125"
             />
           </div>

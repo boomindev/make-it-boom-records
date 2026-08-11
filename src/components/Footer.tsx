@@ -8,10 +8,13 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16 border-b border-white/10">
           {/* Col 1 & 2: Brand Info */}
           <div className="lg:col-span-2 space-y-6">
-            <a href="#hero" className="inline-flex items-center gap-3">
+            <a href="#hero" title="Make It Boom Records - Home" className="inline-flex items-center gap-3">
               <img
                 src="/assets/logo.png"
-                alt="Make It Boom Records"
+                alt="Make It Boom Records - Sello Discográfico & Record Label de Música Urbana"
+                width="160"
+                height="40"
+                loading="lazy"
                 className="h-10 w-auto object-contain"
                 onError={(e) => {
                   (e.target as HTMLElement).style.display = 'none';
@@ -36,57 +39,57 @@ export const Footer: React.FC = () => {
 
           {/* Col 3: MENU */}
           <div>
-            <h4 className="font-headline font-bold text-xs tracking-[0.2em] text-white uppercase mb-6">
+            <h3 className="font-headline font-bold text-xs tracking-[0.2em] text-white uppercase mb-6">
               MENU
-            </h4>
+            </h3>
             <ul className="space-y-3 text-xs tracking-wider font-medium">
               <li>
-                <a href="#hero" className="hover:text-white transition-colors">HOME</a>
+                <a href="#hero" title="Ir a Inicio" className="hover:text-white transition-colors">HOME</a>
               </li>
               <li>
-                <a href="#artists" className="hover:text-white transition-colors">ARTISTS</a>
+                <a href="#artists" title="Ver Artistas de Make It Boom Records" className="hover:text-white transition-colors">ARTISTS</a>
               </li>
               <li>
-                <a href="#listeners" className="hover:text-white transition-colors">LISTENERS</a>
+                <a href="#listeners" title="Ver Mapa de Oyentes y Audiencia Global" className="hover:text-white transition-colors">LISTENERS</a>
               </li>
               <li>
-                <a href="#plans" className="hover:text-white transition-colors">PLANS</a>
+                <a href="#plans" title="Ver Planes de Distribución Musical" className="hover:text-white transition-colors">PLANS</a>
               </li>
               <li>
-                <a href="#social" className="hover:text-white transition-colors">SOCIAL</a>
+                <a href="#social" title="Ver Redes Sociales Oficiales" className="hover:text-white transition-colors">SOCIAL</a>
               </li>
               <li>
-                <a href="#footer" className="hover:text-white transition-colors">CONTACT</a>
+                <a href="#footer" title="Contacto Make It Boom Records" className="hover:text-white transition-colors">CONTACT</a>
               </li>
             </ul>
           </div>
 
           {/* Col 4: SOCIAL */}
           <div>
-            <h4 className="font-headline font-bold text-xs tracking-[0.2em] text-white uppercase mb-6">
+            <h3 className="font-headline font-bold text-xs tracking-[0.2em] text-white uppercase mb-6">
               SOCIAL
-            </h4>
+            </h3>
             <ul className="space-y-3 text-xs tracking-wider font-medium">
               <li>
-                <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors flex items-center gap-1">
+                <a href="https://instagram.com" target="_blank" rel="noreferrer" title="Instagram Oficial de Make It Boom Records" aria-label="Instagram de Make It Boom Records" className="hover:text-white transition-colors flex items-center gap-1">
                   <span>Instagram</span>
                   <ArrowUpRight className="w-3 h-3 text-white/40" />
                 </a>
               </li>
               <li>
-                <a href="https://tiktok.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors flex items-center gap-1">
+                <a href="https://tiktok.com" target="_blank" rel="noreferrer" title="TikTok Oficial de Make It Boom Records" aria-label="TikTok de Make It Boom Records" className="hover:text-white transition-colors flex items-center gap-1">
                   <span>TikTok</span>
                   <ArrowUpRight className="w-3 h-3 text-white/40" />
                 </a>
               </li>
               <li>
-                <a href="https://youtube.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors flex items-center gap-1">
+                <a href="https://youtube.com" target="_blank" rel="noreferrer" title="Canal de YouTube de Make It Boom Records" aria-label="YouTube de Make It Boom Records" className="hover:text-white transition-colors flex items-center gap-1">
                   <span>YouTube</span>
                   <ArrowUpRight className="w-3 h-3 text-white/40" />
                 </a>
               </li>
               <li>
-                <a href="https://spotify.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors flex items-center gap-1">
+                <a href="https://spotify.com" target="_blank" rel="noreferrer" title="Perfil de Spotify de Make It Boom Records" aria-label="Spotify de Make It Boom Records" className="hover:text-white transition-colors flex items-center gap-1">
                   <span>Spotify</span>
                   <ArrowUpRight className="w-3 h-3 text-white/40" />
                 </a>
@@ -96,21 +99,21 @@ export const Footer: React.FC = () => {
 
           {/* Col 5: LEGAL */}
           <div>
-            <h4 className="font-headline font-bold text-xs tracking-[0.2em] text-white uppercase mb-6">
+            <h3 className="font-headline font-bold text-xs tracking-[0.2em] text-white uppercase mb-6">
               LEGAL
-            </h4>
+            </h3>
             <ul className="space-y-3 text-xs tracking-wider font-medium">
               <li>
-                <a href="#" className="hover:text-white transition-colors">Terms & Conditions</a>
+                <a href="#" title="Términos y Condiciones" className="hover:text-white transition-colors">Terms &amp; Conditions</a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" title="Política de Privacidad" className="hover:text-white transition-colors">Privacy Policy</a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>
+                <a href="#" title="Política de Cookies" className="hover:text-white transition-colors">Cookie Policy</a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">Licensing Terms</a>
+                <a href="#" title="Términos de Licencias" className="hover:text-white transition-colors">Licensing Terms</a>
               </li>
             </ul>
           </div>

@@ -33,6 +33,8 @@ export const SocialMedia: React.FC<SocialMediaProps> = ({ onHoverState }) => {
               href={soc.url}
               target="_blank"
               rel="noopener noreferrer"
+              title={`Seguir a Make It Boom Records en ${soc.name} (${soc.handle})`}
+              aria-label={`Canal oficial de Make It Boom Records en ${soc.name}`}
               onMouseEnter={() => onHoverState && onHoverState(true, 'FOLLOW')}
               onMouseLeave={() => onHoverState && onHoverState(false)}
               className="group bg-[#131313] border border-white/10 rounded-[4px] p-6 flex items-center justify-between hover:border-white/40 hover:bg-[#181818] transition-all duration-300 cursor-pointer"
