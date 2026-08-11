@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { X, CheckCircle2, Upload, ArrowRight, ShieldCheck } from 'lucide-react';
+import { X, CheckCircle2, Upload, ArrowRight, ShieldCheck, Loader2 } from 'lucide-react';
 import { ApplicationFormData } from '../types';
 
 interface ApplicationModalProps {
@@ -37,6 +37,7 @@ export const ApplicationModal: React.FC<ApplicationModalProps> = ({
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
   // Synchronize initial prop changes
@@ -88,14 +89,57 @@ export const ApplicationModal: React.FC<ApplicationModalProps> = ({
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.fullName || !formData.artistName || !formData.email) {
       setErrorMsg('Please fill in all required fields (Name, Artist Name, Email).');
       return;
     }
     setErrorMsg('');
-    setSubmitted(true);
+    setIsSubmitting(true);
+
+    try {
+      const payload = new FormData();
+      payload.append('submission_type', formType === 'demo_submission' ? 'Demo Submission' : 'Artist Application');
+      payload.append('full_name', formData.fullName);
+      payload.append('artist_name', formData.artistName);
+      payload.append('email', formData.email);
+      payload.append('phone', formData.phone);
+      payload.append('country', formData.country);
+      payload.append('genre', formData.genre);
+      payload.append('selected_plan', formData.selectedPlan);
+      payload.append('spotify_link', formData.spotifyLink);
+      payload.append('instagram_link', formData.instagramLink);
+      payload.append('youtube_link', formData.youtubeLink);
+      payload.append('message', formData.message);
+
+      if (formData.demoFile) {
+        payload.append('demo_file', formData.demoFile);
+      }
+
+      const response = await fetch('https://formspree.io/f/xgawkqnr', {
+        method: 'POST',
+        body: payload,
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        const data = await response.json().catch(() => ({}));
+        if (data && data.errors && data.errors.length > 0) {
+          setErrorMsg(data.errors.map((err: any) => err.message).join(', '));
+        } else {
+          setErrorMsg('Error submitting application. Please try again.');
+        }
+      }
+    } catch (err) {
+      setErrorMsg('Network error. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -386,10 +430,20 @@ export const ApplicationModal: React.FC<ApplicationModalProps> = ({
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full py-4 bg-white text-black font-headline font-extrabold text-sm tracking-widest uppercase rounded-[4px] hover:bg-neutral-200 transition-all duration-300 flex items-center justify-center gap-2 shadow-xl"
+                disabled={isSubmitting}
+                className="w-full py-4 bg-white text-black font-headline font-extrabold text-sm tracking-widest uppercase rounded-[4px] hover:bg-neutral-200 transition-all duration-300 flex items-center justify-center gap-2 shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <span>SUBMIT APPLICATION</span>
-                <ArrowRight className="w-4 h-4" />
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>SENDING...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>SUBMIT APPLICATION</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </>
+                )}
               </button>
             </form>
           </div>
