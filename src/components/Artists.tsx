@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState, useCallback } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { REAL_ARTISTS } from '../data/artists';
-import { ArrowUpRight, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
+import { ExternalLink, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -234,10 +234,13 @@ export const Artists: React.FC<ArtistsProps> = ({ onHoverState }) => {
                 style={{ width: `${100 / REAL_ARTISTS.length}%` }}
                 className="px-2 sm:px-3 shrink-0"
               >
-                <div
-                  onMouseEnter={() => onHoverState && onHoverState(true, 'ARTIST')}
+                <a
+                  href={artist.spotifyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onMouseEnter={() => onHoverState && onHoverState(true, 'SPOTIFY')}
                   onMouseLeave={() => onHoverState && onHoverState(false)}
-                  className="group relative bg-[#131313] border border-white/10 rounded-[4px] overflow-hidden hover:border-white/50 transition-all duration-500 cursor-pointer flex flex-col justify-between h-[460px] sm:h-[520px] shadow-2xl"
+                  className="group relative bg-[#131313] border border-white/10 rounded-[4px] overflow-hidden hover:border-green-500/60 transition-all duration-500 cursor-pointer flex flex-col justify-between h-[460px] sm:h-[520px] shadow-2xl block"
                 >
                   {/* Background Artist Image */}
                   <div className="absolute inset-0 overflow-hidden bg-[#181818]">
@@ -251,19 +254,19 @@ export const Artists: React.FC<ArtistsProps> = ({ onHoverState }) => {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0e0e0e] via-[#0e0e0e]/40 to-transparent opacity-90 group-hover:opacity-75 transition-opacity duration-500" />
                   </div>
 
-                  {/* Top Badge & Arrow Indicator */}
+                  {/* Top Badge & Spotify Icon */}
                   <div className="relative z-10 p-5 sm:p-6 flex items-center justify-between">
-                    <span className="px-3 py-1 bg-black/70 backdrop-blur-md text-[10px] font-extrabold text-[#e2e2e2] tracking-[0.2em] uppercase border border-white/15 rounded-[2px]">
+                    <span className="px-3 py-1 bg-black/70 backdrop-blur-md text-[10px] font-extrabold text-[#e2e2e2] tracking-[0.2em] uppercase border border-white/15 rounded-[2px] group-hover:border-green-500/40 transition-colors">
                       {artist.category}
                     </span>
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-all duration-300 shadow-lg">
-                      <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black/60 backdrop-blur-md border border-white/20 flex items-center justify-center text-white group-hover:bg-[#1DB954] group-hover:text-black group-hover:border-[#1DB954] transition-all duration-300 shadow-lg">
+                      <ExternalLink className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
                     </div>
                   </div>
 
                   {/* Bottom Info Section */}
                   <div className="relative z-10 p-6 sm:p-8 transform transition-transform duration-300 group-hover:-translate-y-2">
-                    <span className="text-[10px] font-bold tracking-[0.25em] text-[#8e9192] uppercase block mb-1.5">
+                    <span className="text-[10px] font-bold tracking-[0.25em] text-[#8e9192] uppercase block mb-1.5 group-hover:text-green-400 transition-colors">
                       MAKE IT BOOM RECORDS
                     </span>
                     <h3 className="font-headline font-black text-2xl sm:text-4xl text-white tracking-tight uppercase group-hover:text-white transition-colors">
@@ -271,13 +274,16 @@ export const Artists: React.FC<ArtistsProps> = ({ onHoverState }) => {
                     </h3>
 
                     <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-white/10 flex items-center justify-between text-xs text-[#c4c7c8]">
-                      <span className="tracking-wider uppercase font-semibold text-[10px] sm:text-[11px] text-white/70">
-                        OFFICIAL ARTIST
+                      <span className="tracking-wider uppercase font-semibold text-[10px] sm:text-[11px] text-white/70 group-hover:text-[#1DB954] transition-colors flex items-center gap-1.5">
+                        <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                          <path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm5.521 17.341c-.218.359-.696.475-1.055.257-2.887-1.764-6.522-2.162-10.804-1.183-.406.092-.813-.161-.906-.568-.092-.406.162-.813.569-.906 4.686-1.071 8.687-.611 11.94 1.345.358.218.474.696.256 1.055zm1.474-3.277c-.274.446-.859.589-1.305.314-3.305-2.032-8.344-2.622-12.254-1.434-.503.153-1.033-.135-1.186-.638-.153-.503.136-1.033.638-1.186 4.469-1.356 10.027-.704 13.793 1.614.446.275.589.859.314 1.305zm.135-3.411c-3.962-2.353-10.504-2.57-14.305-1.416-.609.185-1.25-.164-1.435-.772-.185-.608.164-1.25.772-1.435 4.373-1.328 11.583-1.077 16.143 1.631.547.324.729 1.035.405 1.581-.325.547-1.035.729-1.58.411z"/>
+                        </svg>
+                        LISTEN ON SPOTIFY
                       </span>
-                      <span className="text-white font-mono text-[10px] sm:text-[11px]">2026 ROSTER</span>
+                      <span className="text-white/50 group-hover:text-white font-mono text-[10px] sm:text-[11px] transition-colors">SPOTIFY</span>
                     </div>
                   </div>
-                </div>
+                </a>
               </div>
             ))}
           </div>
