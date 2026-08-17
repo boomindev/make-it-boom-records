@@ -31,8 +31,8 @@ export const Footer: React.FC = () => {
 
             <div className="flex items-center gap-2 text-xs font-mono text-white">
               <Mail className="w-4 h-4 text-white/70" />
-              <a href="mailto:info@makeitboomrecords.com" className="hover:underline">
-                info@makeitboomrecords.com
+              <a href="mailto:nocitamusic@gmail.com" className="hover:underline">
+                nocitamusic@gmail.com
               </a>
             </div>
           </div>
