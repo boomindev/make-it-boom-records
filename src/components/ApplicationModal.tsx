@@ -170,7 +170,7 @@ export const ApplicationModal: React.FC<ApplicationModalProps> = ({
               APPLICATION RECEIVED
             </h3>
             <p className="text-base text-[#c4c7c8] font-light max-w-md mb-8 leading-relaxed">
-              Thank you for your interest in Makeitboom distribution. Our A&R and management team will review your submission and contact you via email or WhatsApp soon.
+              Thank you for your interest in MAKE IT BOOM DISTRIBUTION. Our A&R and management team will review your submission and contact you via email or WhatsApp soon.
             </p>
             <button
               onClick={() => {
@@ -297,7 +297,7 @@ export const ApplicationModal: React.FC<ApplicationModalProps> = ({
               </div>
 
               {/* Row 3 */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-[10px] font-bold text-[#8e9192] tracking-widest uppercase mb-2">
                     COUNTRY
@@ -324,23 +324,6 @@ export const ApplicationModal: React.FC<ApplicationModalProps> = ({
                     onChange={handleChange}
                     className="w-full bg-[#181818] border border-white/15 focus:border-white rounded-[4px] px-4 py-3 text-sm text-white focus:outline-none transition-colors"
                   />
-                </div>
-
-                <div>
-                  <label className="block text-[10px] font-bold text-[#8e9192] tracking-widest uppercase mb-2">
-                    SELECT PLAN
-                  </label>
-                  <select
-                    name="selectedPlan"
-                    value={formData.selectedPlan}
-                    onChange={handleChange}
-                    className="w-full bg-[#181818] border border-white/15 focus:border-white rounded-[4px] px-4 py-3 text-sm text-white focus:outline-none transition-colors"
-                  >
-                    <option value="STARTER">STARTER ($29/mo)</option>
-                    <option value="PROFESSIONAL">PROFESSIONAL ($79/mo)</option>
-                    <option value="ELITE">ELITE ($199/mo)</option>
-                    <option value="PREMIUM">PREMIUM ($499/mo)</option>
-                  </select>
                 </div>
               </div>
 

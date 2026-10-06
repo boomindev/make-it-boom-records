@@ -10,7 +10,6 @@ import { Hero } from './components/Hero';
 import { Stats } from './components/Stats';
 import { Artists } from './components/Artists';
 import { ListenersMap } from './components/ListenersMap';
-import { Plans } from './components/Plans';
 import { DemoCTA } from './components/DemoCTA';
 import { Partners } from './components/Partners';
 import { FinalCTA } from './components/FinalCTA';
@@ -99,12 +98,6 @@ export function App() {
 
         {/* Global Listeners & Heatmap */}
         <ListenersMap onHoverState={handleCursorHover} />
-
-        {/* Service Plans & Pricing */}
-        <Plans
-          onSelectPlan={(planName) => handleOpenJoinModal(planName)}
-          onHoverState={handleCursorHover}
-        />
 
         {/* Unreleased Demo CTA */}
         <DemoCTA

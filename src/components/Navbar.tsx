@@ -26,7 +26,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal, onOpenDemoModal
     { name: 'HOME', href: '#hero' },
     { name: 'ARTISTS', href: '#artists' },
     { name: 'LISTENERS', href: '#listeners' },
-    { name: 'PLANS', href: '#plans' },
     { name: 'PARTNERS', href: '#partners' },
     { name: 'CONTACT', href: '#footer' },
   ];
@@ -42,10 +41,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal, onOpenDemoModal
       >
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between">
           {/* Logo */}
-          <a href="#hero" title="Makeitboom distribution | Distribución Digital" className="flex items-center gap-3 group">
+          <a href="#hero" title="MAKE IT BOOM DISTRIBUTION | Distribución Digital" className="flex items-center gap-3 group">
             <img
               src="/assets/logo.png"
-              alt="Makeitboom distribution - Distribución Musical"
+              alt="MAKE IT BOOM DISTRIBUTION - Distribución Musical"
               width="140"
               height="36"
               className="h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
@@ -56,7 +55,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal, onOpenDemoModal
               }}
             />
             <span className="font-headline font-extrabold text-lg md:text-xl tracking-tight text-white uppercase group-hover:text-white/80 transition-colors">
-              MAKE IT BOOM<span className="text-white/40 ml-1.5 text-xs tracking-widest font-normal">DISTRIBUTION</span>
+              MAKE IT BOOM DISTRIBUTION
             </span>
           </a>
 
@@ -66,7 +65,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal, onOpenDemoModal
               <a
                 key={link.name}
                 href={link.href}
-                title={`Ir a ${link.name} - Makeitboom distribution`}
+                title={`Ir a ${link.name} - MAKE IT BOOM DISTRIBUTION`}
                 className="text-xs font-medium tracking-[0.15em] text-[#c4c7c8] hover:text-white transition-colors duration-200 uppercase relative group py-1"
               >
                 {link.name}

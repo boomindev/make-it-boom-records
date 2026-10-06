@@ -8,10 +8,10 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 pb-16 border-b border-white/10">
           {/* Col 1 & 2: Brand Info */}
           <div className="lg:col-span-2 space-y-6">
-            <a href="#hero" title="Makeitboom distribution - Home" className="inline-flex items-center gap-3">
+            <a href="#hero" title="MAKE IT BOOM DISTRIBUTION - Home" className="inline-flex items-center gap-3">
               <img
                 src="/assets/logo.png"
-                alt="Makeitboom distribution - Distribución Musical & Record Label"
+                alt="MAKE IT BOOM DISTRIBUTION - Distribución Musical & Record Label"
                 width="160"
                 height="40"
                 loading="lazy"
@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
                 }}
               />
               <span className="font-headline font-black text-xl text-white tracking-tight uppercase">
-                MAKE IT BOOM<span className="text-white/40 ml-1.5 text-xs font-normal">DISTRIBUTION</span>
+                MAKE IT BOOM DISTRIBUTION
               </span>
             </a>
 
@@ -47,19 +47,16 @@ export const Footer: React.FC = () => {
                 <a href="#hero" title="Ir a Inicio" className="hover:text-white transition-colors">HOME</a>
               </li>
               <li>
-                <a href="#artists" title="Ver Artistas de Makeitboom distribution" className="hover:text-white transition-colors">ARTISTS</a>
+                <a href="#artists" title="Ver Artistas de MAKE IT BOOM DISTRIBUTION" className="hover:text-white transition-colors">ARTISTS</a>
               </li>
               <li>
                 <a href="#listeners" title="Ver Mapa de Oyentes y Audiencia Global" className="hover:text-white transition-colors">LISTENERS</a>
               </li>
               <li>
-                <a href="#plans" title="Ver Planes de Distribución Musical" className="hover:text-white transition-colors">PLANS</a>
-              </li>
-              <li>
                 <a href="#partners" title="Ver Partners y Sponsors" className="hover:text-white transition-colors">PARTNERS</a>
               </li>
               <li>
-                <a href="#footer" title="Contacto Makeitboom distribution" className="hover:text-white transition-colors">CONTACT</a>
+                <a href="#footer" title="Contacto MAKE IT BOOM DISTRIBUTION" className="hover:text-white transition-colors">CONTACT</a>
               </li>
             </ul>
           </div>
@@ -67,7 +64,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Rights */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-[#8e9192]">
-          <div>&copy; 2026 Makeitboom distribution. All rights reserved.</div>
+          <div>&copy; 2026 MAKE IT BOOM DISTRIBUTION. All rights reserved.</div>
           <div className="flex items-center space-x-6">
             <span>DESIGN SYSTEM: STITCH NOIR</span>
             <span>HIGH FIDELITY AUDIO DISTRIBUTION</span>
