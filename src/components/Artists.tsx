@@ -272,7 +272,7 @@ export const Artists: React.FC<ArtistsProps> = ({ onHoverState }) => {
                   {/* Bottom Info Section */}
                   <div className="relative z-10 p-6 sm:p-8 transform transition-transform duration-300 group-hover:-translate-y-2">
                     <span className="text-[10px] font-bold tracking-[0.25em] text-[#8e9192] uppercase block mb-1.5 group-hover:text-green-400 transition-colors">
-                      MAKE IT BOOM RECORDS
+                      MAKE IT BOOM DISTRIBUTION
                     </span>
                     <h3 className="font-headline font-black text-2xl sm:text-4xl text-white tracking-tight uppercase group-hover:text-white transition-colors">
                       {artist.name}

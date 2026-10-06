@@ -170,7 +170,7 @@ export const ApplicationModal: React.FC<ApplicationModalProps> = ({
               APPLICATION RECEIVED
             </h3>
             <p className="text-base text-[#c4c7c8] font-light max-w-md mb-8 leading-relaxed">
-              Thank you for your interest in Make It Boom Records. Our A&R and management team will review your submission and contact you via email or WhatsApp soon.
+              Thank you for your interest in Makeitboom distribution. Our A&R and management team will review your submission and contact you via email or WhatsApp soon.
             </p>
             <button
               onClick={() => {

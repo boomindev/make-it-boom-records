@@ -27,7 +27,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal, onOpenDemoModal
     { name: 'ARTISTS', href: '#artists' },
     { name: 'LISTENERS', href: '#listeners' },
     { name: 'PLANS', href: '#plans' },
-    { name: 'SOCIAL', href: '#social' },
+    { name: 'PARTNERS', href: '#partners' },
     { name: 'CONTACT', href: '#footer' },
   ];
 
@@ -42,10 +42,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal, onOpenDemoModal
       >
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between">
           {/* Logo */}
-          <a href="#hero" title="Make It Boom Records | Sello Discográfico & Record Label" className="flex items-center gap-3 group">
+          <a href="#hero" title="Makeitboom distribution | Distribución Digital" className="flex items-center gap-3 group">
             <img
               src="/assets/logo.png"
-              alt="Make It Boom Records - Sello Discográfico & Record Label de Música Urbana"
+              alt="Makeitboom distribution - Distribución Musical"
               width="140"
               height="36"
               className="h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
@@ -56,7 +56,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal, onOpenDemoModal
               }}
             />
             <span className="font-headline font-extrabold text-lg md:text-xl tracking-tight text-white uppercase group-hover:text-white/80 transition-colors">
-              MAKE IT BOOM<span className="text-white/40 ml-1.5 text-xs tracking-widest font-normal">RECORDS</span>
+              MAKE IT BOOM<span className="text-white/40 ml-1.5 text-xs tracking-widest font-normal">DISTRIBUTION</span>
             </span>
           </a>
 
@@ -66,7 +66,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal, onOpenDemoModal
               <a
                 key={link.name}
                 href={link.href}
-                title={`Ir a ${link.name} - Make It Boom Records`}
+                title={`Ir a ${link.name} - Makeitboom distribution`}
                 className="text-xs font-medium tracking-[0.15em] text-[#c4c7c8] hover:text-white transition-colors duration-200 uppercase relative group py-1"
               >
                 {link.name}

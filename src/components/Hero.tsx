@@ -75,17 +75,17 @@ export const Hero: React.FC<HeroProps> = ({ onOpenJoinModal, onOpenDemoModal }) 
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-[2px] bg-white/5 border border-white/15 mb-6 backdrop-blur-md">
           <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
           <span className="text-[11px] font-semibold tracking-[0.2em] text-[#c4c7c8] uppercase">
-            MAKE IT BOOM RECORDS &middot; SELLO DISCOGRÁFICO
+            MAKEITBOOM DISTRIBUTION &middot; DISTRIBUCIÓN MUSICAL GLOBAL
           </span>
         </div>
 
         {/* Main Headline */}
         <h1
           ref={headlineRef}
-          aria-label="Make It Boom Records - Home of Global Talent | Sello Discográfico de Música Urbana"
+          aria-label="Makeitboom distribution - Home of Global Talent | Distribución Musical"
           className="font-headline font-black text-4xl sm:text-6xl md:text-8xl lg:text-9xl tracking-tighter text-white uppercase leading-[0.9] max-w-5xl mb-8 drop-shadow-2xl"
         >
-          <span className="sr-only">Make It Boom Records — Sello Discográfico &amp; Record Label de Música Urbana: </span>
+          <span className="sr-only">Makeitboom distribution — Distribución Musical &amp; Desarrollo Artístico: </span>
           HOME OF <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-neutral-500">
             GLOBAL TALENT
@@ -97,7 +97,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenJoinModal, onOpenDemoModal }) 
           ref={subtextRef}
           className="text-base sm:text-lg md:text-xl text-[#c4c7c8] max-w-2xl font-light leading-relaxed mb-10 tracking-wide"
         >
-          El sello discográfico internacional donde los artistas independientes de música urbana y talento global impulsan su carrera con distribución mundial y pitching oficial.
+          Plataforma global de distribución musical donde artistas independientes potencian sus carreras con alcance en más de 150 plataformas y pitching oficial.
         </p>
 
         {/* Action Buttons */}

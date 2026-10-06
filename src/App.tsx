@@ -12,7 +12,7 @@ import { Artists } from './components/Artists';
 import { ListenersMap } from './components/ListenersMap';
 import { Plans } from './components/Plans';
 import { DemoCTA } from './components/DemoCTA';
-import { SocialMedia } from './components/SocialMedia';
+import { Partners } from './components/Partners';
 import { FinalCTA } from './components/FinalCTA';
 import { ApplicationModal } from './components/ApplicationModal';
 import { Footer } from './components/Footer';
@@ -112,8 +112,8 @@ export function App() {
           onHoverState={handleCursorHover}
         />
 
-        {/* Official Social Media Channels */}
-        <SocialMedia onHoverState={handleCursorHover} />
+        {/* Sponsors & Distribution Partners */}
+        <Partners onHoverState={handleCursorHover} />
 
         {/* Final High-Impact CTA */}
         <FinalCTA

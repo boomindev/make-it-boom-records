@@ -75,7 +75,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
         <div className="flex justify-between items-start pb-6">
           {/* Left Text Statement */}
           <p className="text-[11px] sm:text-xs md:text-sm text-gray-300 font-sans max-w-xs sm:max-w-md leading-relaxed tracking-wide">
-            Make It Boom Records is an international hub where independent artists grow, new music is discovered, and global talent thrives.
+            Makeitboom distribution is an international hub where independent artists grow, music is distributed worldwide, and global talent thrives.
           </p>
 
           {/* Right Giant Percentage Counter */}
