@@ -49,7 +49,7 @@ export const Partners: React.FC<PartnersProps> = ({ onHoverState }) => {
           </div>
 
           <p className="mt-4 md:mt-0 text-xs sm:text-sm text-[#8e9192] max-w-md font-light leading-relaxed">
-            Distribuimos y colaboramos directamente con los líderes de la industria del streaming y marketing digital para maximizar el alcance de cada lanzamiento.
+            We distribute and partner directly with industry leaders in streaming and digital marketing to maximize the reach of every release.
           </p>
         </div>
 

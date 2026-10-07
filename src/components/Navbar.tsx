@@ -25,7 +25,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal, onOpenDemoModal
   const navLinks = [
     { name: 'HOME', href: '#hero' },
     { name: 'ARTISTS', href: '#artists' },
-    { name: 'LISTENERS', href: '#listeners' },
     { name: 'PARTNERS', href: '#partners' },
     { name: 'CONTACT', href: '#footer' },
   ];
@@ -41,10 +40,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal, onOpenDemoModal
       >
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between">
           {/* Logo */}
-          <a href="#hero" title="MAKE IT BOOM DISTRIBUTION | Distribución Digital" className="flex items-center gap-3 group">
+          <a href="#hero" title="MAKE IT BOOM DISTRIBUTION | Digital Distribution" className="flex items-center gap-3 group">
             <img
               src="/assets/logo.png"
-              alt="MAKE IT BOOM DISTRIBUTION - Distribución Musical"
+              alt="MAKE IT BOOM DISTRIBUTION - Music Distribution"
               width="140"
               height="36"
               className="h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
@@ -60,12 +59,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal, onOpenDemoModal
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav aria-label="Navegación principal" className="hidden md:flex items-center space-x-8">
+          <nav aria-label="Main Navigation" className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                title={`Ir a ${link.name} - MAKE IT BOOM DISTRIBUTION`}
+                title={`Go to ${link.name} - MAKE IT BOOM DISTRIBUTION`}
                 className="text-xs font-medium tracking-[0.15em] text-[#c4c7c8] hover:text-white transition-colors duration-200 uppercase relative group py-1"
               >
                 {link.name}

@@ -7,9 +7,7 @@ import { Preloader } from './components/Preloader';
 import { CustomCursor } from './components/CustomCursor';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { Stats } from './components/Stats';
 import { Artists } from './components/Artists';
-import { ListenersMap } from './components/ListenersMap';
 import { DemoCTA } from './components/DemoCTA';
 import { Partners } from './components/Partners';
 import { FinalCTA } from './components/FinalCTA';
@@ -90,14 +88,8 @@ export function App() {
           onOpenDemoModal={handleOpenDemoModal}
         />
 
-        {/* Animated Statistics */}
-        <Stats />
-
         {/* Artists Roster */}
         <Artists onHoverState={handleCursorHover} />
-
-        {/* Global Listeners & Heatmap */}
-        <ListenersMap onHoverState={handleCursorHover} />
 
         {/* Unreleased Demo CTA */}
         <DemoCTA

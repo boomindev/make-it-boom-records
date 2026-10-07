@@ -11,7 +11,7 @@ export const Footer: React.FC = () => {
             <a href="#hero" title="MAKE IT BOOM DISTRIBUTION - Home" className="inline-flex items-center gap-3">
               <img
                 src="/assets/logo.png"
-                alt="MAKE IT BOOM DISTRIBUTION - Distribución Musical & Record Label"
+                alt="MAKE IT BOOM DISTRIBUTION - Music Distribution & Record Label"
                 width="160"
                 height="40"
                 loading="lazy"
@@ -26,7 +26,7 @@ export const Footer: React.FC = () => {
             </a>
 
             <p className="text-xs text-[#8e9192] leading-relaxed max-w-sm font-light">
-              Plataforma independiente de distribución musical global y desarrollo de talento urbano. Llevamos tus lanzamientos a más de 150 plataformas en todo el mundo.
+              Independent global music distribution platform and urban talent development hub. Delivering your music to over 150 platforms worldwide.
             </p>
 
             <div className="flex items-center gap-2 text-xs font-mono text-white">
@@ -44,19 +44,16 @@ export const Footer: React.FC = () => {
             </h3>
             <ul className="space-y-3 text-xs tracking-wider font-medium">
               <li>
-                <a href="#hero" title="Ir a Inicio" className="hover:text-white transition-colors">HOME</a>
+                <a href="#hero" title="Go to Home" className="hover:text-white transition-colors">HOME</a>
               </li>
               <li>
-                <a href="#artists" title="Ver Artistas de MAKE IT BOOM DISTRIBUTION" className="hover:text-white transition-colors">ARTISTS</a>
+                <a href="#artists" title="View MAKE IT BOOM DISTRIBUTION Artists" className="hover:text-white transition-colors">ARTISTS</a>
               </li>
               <li>
-                <a href="#listeners" title="Ver Mapa de Oyentes y Audiencia Global" className="hover:text-white transition-colors">LISTENERS</a>
+                <a href="#partners" title="View Partners & Sponsors" className="hover:text-white transition-colors">PARTNERS</a>
               </li>
               <li>
-                <a href="#partners" title="Ver Partners y Sponsors" className="hover:text-white transition-colors">PARTNERS</a>
-              </li>
-              <li>
-                <a href="#footer" title="Contacto MAKE IT BOOM DISTRIBUTION" className="hover:text-white transition-colors">CONTACT</a>
+                <a href="#footer" title="Contact MAKE IT BOOM DISTRIBUTION" className="hover:text-white transition-colors">CONTACT</a>
               </li>
             </ul>
           </div>
